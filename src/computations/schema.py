@@ -48,7 +48,7 @@ class ProjectMetrics(DataModel):
     time = StructField(name='time', dataType=TimestampType(), nullable=False)
     tweets_count = StructField(name='tweets_count', dataType=IntegerType())
     unique_tweets_count = StructField(name='unique_tweets_count', dataType=IntegerType())
-    accumulate_tweet_count=StructField(name='accumulate_tweet_count', dataType=IntegerType())
+    accumulate_tweet_count = StructField(name='accumulate_tweet_count', dataType=IntegerType())
 
     @classmethod
     def data_path(cls) -> str:

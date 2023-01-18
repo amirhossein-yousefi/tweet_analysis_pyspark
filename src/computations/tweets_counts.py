@@ -42,6 +42,6 @@ class TweetsCount(DataTask):
         grouped = df.groupBy('project', 'time')
         df = grouped.agg(*aggs).orderBy('project', 'time')
         window = Window.orderBy("time").partitionBy("project")
-        df = df.withColumn('accumulate', f.sum(f.col(ProjectMetrics.accumulate_tweet_count).over(window)))
+        df = df.withColumn('accumulate', f.sum(f.col(ProjectMetrics.tweets_count.name)).over(window).alias(ProjectMetrics.accumulate_tweet_count.name))
 
         return df
